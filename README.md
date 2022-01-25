@@ -11,3 +11,12 @@
 
 ### Editing custom N8N nodes
 Custom nodes are pulled from the /n8n-custom directory. Make desired changes and restart docker-compose
+
+### Cloud Links
+Superset
+http://34.135.242.26:8088
+N8N
+http://34.135.242.26:5678
+
+superset credentials:
+admin/admin
