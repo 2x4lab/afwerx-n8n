@@ -1,0 +1,5 @@
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'n8n')
+BEGIN
+  CREATE DATABASE n8n;
+END;
+GO
