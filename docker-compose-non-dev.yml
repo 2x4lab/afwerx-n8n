@@ -56,6 +56,8 @@ services:
       - 8080:8088
     depends_on: *superset-depends-on
     volumes: *superset-volumes
+    environment:
+      - VIRTUAL_HOST=superset.afwerxdemo.getworkpro.com
 
   superset-init:
     image: *superset-image
@@ -97,6 +99,17 @@ services:
     # Wait 5 seconds to start n8n to make sure that PostgreSQL is ready
     # when n8n tries to connect to it
     command: /bin/sh -c "sleep 5; n8n start"
+    environment:
+      - VIRTUAL_HOST=n8n.afwerxdemo.getworkpro.com
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
 
 volumes:
   superset_home:
