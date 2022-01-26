@@ -117,6 +117,7 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./certs:/etc/nginx/certs
+      - ./cloudflare/cloudflare.conf:/etc/nginx/conf.d/cloudflare.conf
 
 
 volumes:
