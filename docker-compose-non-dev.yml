@@ -60,7 +60,7 @@ services:
       - VIRTUAL_PROTO=https
       - VIRTUAL_PORT=8088
       - VIRTUAL_HOST=superset.afwerxdemo.getworkpro.com
-      - CERT_NAME=shared
+    #  - CERT_NAME=shared
 
   superset-init:
     image: *superset-image
@@ -105,7 +105,7 @@ services:
     environment:
       - VIRTUAL_PROTO=https
       - VIRTUAL_HOST=n8n.afwerxdemo.getworkpro.com
-      - CERT_NAME=shared
+     # - CERT_NAME=shared
       - VIRTUAL_PORT=5678
 
   nginx-proxy:
@@ -117,8 +117,6 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./certs:/etc/nginx/certs
-      - ./cloudflare/cloudflare.conf:/etc/nginx/vhost.d/default
-
 
 volumes:
   superset_home:
