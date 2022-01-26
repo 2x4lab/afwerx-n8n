@@ -59,6 +59,7 @@ services:
     environment:
       - VIRTUAL_PROTO=https
       - VIRTUAL_HOST=superset.afwerxdemo.getworkpro.com
+      - CERT_NAME=shared
 
   superset-init:
     image: *superset-image
@@ -103,6 +104,7 @@ services:
     environment:
       - VIRTUAL_PROTO=https
       - VIRTUAL_HOST=n8n.afwerxdemo.getworkpro.com
+      - CERT_NAME=shared
 
   nginx-proxy:
     image: jwilder/nginx-proxy
