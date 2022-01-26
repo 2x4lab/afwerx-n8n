@@ -58,6 +58,7 @@ services:
     volumes: *superset-volumes
     environment:
       - VIRTUAL_PROTO=https
+      - VIRTUAL_PORT=8088
       - VIRTUAL_HOST=superset.afwerxdemo.getworkpro.com
       - CERT_NAME=shared
 
@@ -105,6 +106,7 @@ services:
       - VIRTUAL_PROTO=https
       - VIRTUAL_HOST=n8n.afwerxdemo.getworkpro.com
       - CERT_NAME=shared
+      - VIRTUAL_PORT=5678
 
   nginx-proxy:
     image: jwilder/nginx-proxy
