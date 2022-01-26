@@ -57,7 +57,10 @@ services:
     depends_on: *superset-depends-on
     volumes: *superset-volumes
     environment:
-      - VIRTUAL_HOST=superset.afwerxdemo.getworkpro.com
+      - VIRTUAL_HOST=superset.localhost
+      - VIRTUAL_PROTO=https
+      - CERT_NAME=shared
+     # - VIRTUAL_HOST=superset.afwerxdemo.getworkpro.com
 
   superset-init:
     image: *superset-image
@@ -100,15 +103,20 @@ services:
     # when n8n tries to connect to it
     command: /bin/sh -c "sleep 5; n8n start"
     environment:
-      - VIRTUAL_HOST=n8n.afwerxdemo.getworkpro.com
+      - VIRTUAL_HOST=n8n.localhost
+      - VIRTUAL_PROTO=https
+      - CERT_NAME=shared
+     # - VIRTUAL_HOST=superset.afwerxdemo.getworkpro.com
 
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
     ports:
       - 80:80
+      - 443:443
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs
 
 
 volumes:
